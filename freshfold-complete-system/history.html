@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FreshFold — Order history</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="history.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wordmark">FreshFold</div>
+  <nav class="nav">
+    <a href="dashboard.html">Home</a>
+    <a href="book.html">Book a service</a>
+    <a href="history.html" class="active">Orders</a>
+    <a href="notifications.html">Notifications</a>
+  </nav>
+  <div class="user-chip">
+    <span class="avatar">JD</span>
+    <span class="user-name">Juan D.</span>
+  </div>
+</header>
+
+<main class="page">
+
+  <div class="page-head">
+    <div>
+      <h1>Your orders</h1>
+      <p class="sub">Everything you've booked with FreshFold, in one place.</p>
+    </div>
+  </div>
+
+  <div class="filter-row" role="tablist" aria-label="Filter orders">
+    <button class="filter-chip selected" data-filter="all">All</button>
+    <button class="filter-chip" data-filter="active">Active</button>
+    <button class="filter-chip" data-filter="completed">Completed</button>
+  </div>
+
+  <div class="order-list" id="order-list">
+    <p class="empty-state">Loading your orders…</p>
+  </div>
+
+  <p class="empty-state" id="empty-state" hidden>No orders match this filter yet.</p>
+
+</main>
+
+<script src="api.js"></script>
+<script src="history.js"></script>
+</body>
+</html>

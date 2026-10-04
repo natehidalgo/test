@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FreshFold — Track order</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="track.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wordmark">FreshFold</div>
+  <nav class="nav">
+    <a href="dashboard.html">Home</a>
+    <a href="book.html">Book a service</a>
+    <a href="history.html" class="active">Orders</a>
+    <a href="notifications.html">Notifications</a>
+  </nav>
+  <div class="user-chip">
+    <span class="avatar">JD</span>
+    <span class="user-name">Juan D.</span>
+  </div>
+</header>
+
+<main class="page">
+
+  <a class="back-link" href="history.html">&larr; Back to orders</a>
+
+  <div class="page-head">
+    <div>
+      <span class="eyebrow" id="order-code">Loading order…</span>
+      <h1 id="order-service">—</h1>
+    </div>
+    <span class="badge badge-progress" id="order-badge">—</span>
+  </div>
+
+  <div class="layout">
+
+    <div class="main-col">
+
+      <div class="card">
+        <h2>Order progress</h2>
+        <ol class="v-stepper" aria-label="Order progress timeline" id="order-stepper">
+          <li class="upcoming">
+            <span class="dot"></span>
+            <div><p class="step-title">Booking confirmed</p><p class="step-time"></p></div>
+          </li>
+          <li class="upcoming">
+            <span class="dot"></span>
+            <div><p class="step-title">Picked up</p><p class="step-time"></p></div>
+          </li>
+          <li class="upcoming">
+            <span class="dot"></span>
+            <div><p class="step-title">Processing at facility</p><p class="step-time"></p></div>
+          </li>
+          <li class="upcoming">
+            <span class="dot"></span>
+            <div><p class="step-title">Out for delivery</p><p class="step-time"></p></div>
+          </li>
+          <li class="upcoming">
+            <span class="dot"></span>
+            <div><p class="step-title">Delivered</p><p class="step-time"></p></div>
+          </li>
+        </ol>
+      </div>
+
+      <div class="card" id="rider-card">
+        <h2>Rider</h2>
+        <div class="rider-row">
+          <span class="avatar rider-avatar" id="rider-avatar">—</span>
+          <div class="rider-info">
+            <p class="rider-name" id="rider-name">Not yet assigned</p>
+            <p class="rider-sub" id="rider-sub"></p>
+          </div>
+          <button class="btn-ghost" type="button">Contact rider</button>
+        </div>
+      </div>
+
+    </div>
+
+    <aside class="side-col">
+
+      <div class="card">
+        <h2>Order details</h2>
+        <div class="detail-row"><span>Service</span><span id="detail-service">—</span></div>
+        <div class="detail-row"><span>Load</span><span id="detail-load">—</span></div>
+        <div class="detail-row"><span>Rate</span><span id="detail-rate">—</span></div>
+        <div class="detail-row"><span>Pickup address</span><span id="detail-address">—</span></div>
+        <div class="summary-divider"></div>
+        <div class="detail-row total"><span>Total</span><span id="detail-total">—</span></div>
+      </div>
+
+      <div class="card help-card">
+        <h2>Need help?</h2>
+        <p class="help-text">If something looks off with this order, our support team can help sort it out.</p>
+        <button class="btn-primary" type="button">Contact support</button>
+      </div>
+
+    </aside>
+
+  </div>
+
+</main>
+
+<script src="api.js"></script>
+<script src="track.js"></script>
+</body>
+</html>

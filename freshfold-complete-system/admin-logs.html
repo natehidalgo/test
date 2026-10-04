@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FreshFold Admin — Integration logs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="admin-logs.css">
+</head>
+<body>
+
+<div class="shell">
+
+  <aside class="sidebar">
+    <div class="wordmark">FreshFold <span class="tag">Admin</span></div>
+    <nav class="side-nav">
+      <a href="admin-dashboard.html">Overview</a>
+      <a href="admin-orders.html">Orders</a>
+      <a href="admin-assignment.html">Assignment</a>
+      <a href="admin-customers.html">Customers</a>
+      <a href="admin-staff.html">Staff &amp; riders</a>
+      <a href="admin-services.html">Services &amp; pricing</a>
+      <a href="admin-payments.html">Payments</a>
+      <a href="admin-logs.html" class="active">Integration logs</a>
+      <a href="admin-reports.html">Reports</a>
+    </nav>
+    <div class="user-chip">
+      <span class="avatar">AD</span>
+      <div>
+        <p class="user-name">Alicia D.</p>
+        <p class="user-role">Admin</p>
+      </div>
+    </div>
+  </aside>
+
+  <main class="content">
+
+    <div class="page-head">
+      <div>
+        <h1>Integration logs</h1>
+        <p class="sub">Every API call, webhook event, and notification dispatch, traceable by reference.</p>
+      </div>
+    </div>
+
+    <div class="toolbar">
+      <input class="search-input" type="search" id="search" placeholder="Search by log ID, reference, or message">
+      <div class="filter-row" role="tablist" aria-label="Filter logs">
+        <button class="filter-chip selected" data-filter="all">All</button>
+        <button class="filter-chip" data-filter="success">Success</button>
+        <button class="filter-chip" data-filter="failed">Failed</button>
+        <button class="filter-chip" data-filter="API">API</button>
+        <button class="filter-chip" data-filter="Webhook">Webhook</button>
+        <button class="filter-chip" data-filter="Messaging">Messaging</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <table class="table" id="logs-table">
+        <thead>
+          <tr><th>Log ID</th><th>Timestamp</th><th>Type</th><th>Source</th><th>Event</th><th>Reference</th><th>Status</th><th>Message</th></tr>
+        </thead>
+        <tbody id="logs-tbody">
+          <tr><td colspan="8">Loading logs…</td></tr>
+        </tbody>
+      </table>
+      <p class="empty-state" id="empty-state" hidden>No log entries match your search or filter.</p>
+    </div>
+
+  </main>
+
+</div>
+
+<script src="api.js"></script>
+<script src="admin-logs.js"></script>
+</body>
+</html>

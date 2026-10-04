@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FreshFold Admin — Services &amp; pricing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="admin-services.css">
+</head>
+<body>
+
+<div class="shell">
+
+  <aside class="sidebar">
+    <div class="wordmark">FreshFold <span class="tag">Admin</span></div>
+    <nav class="side-nav">
+      <a href="admin-dashboard.html">Overview</a>
+      <a href="admin-orders.html">Orders</a>
+      <a href="admin-assignment.html">Assignment</a>
+      <a href="admin-customers.html">Customers</a>
+      <a href="admin-staff.html">Staff &amp; riders</a>
+      <a href="admin-services.html" class="active">Services &amp; pricing</a>
+      <a href="admin-payments.html">Payments</a>
+      <a href="admin-logs.html">Integration logs</a>
+      <a href="admin-reports.html">Reports</a>
+    </nav>
+    <div class="user-chip">
+      <span class="avatar">AD</span>
+      <div>
+        <p class="user-name">Alicia D.</p>
+        <p class="user-role">Admin</p>
+      </div>
+    </div>
+  </aside>
+
+  <main class="content">
+
+    <div class="page-head">
+      <div>
+        <h1>Services &amp; pricing</h1>
+        <p class="sub">Manage the service types customers can book, and their per-kg rates.</p>
+      </div>
+      <button class="btn-primary" id="add-service">Add service</button>
+    </div>
+
+    <div class="card">
+      <table class="table" id="services-table">
+        <thead>
+          <tr><th>Service</th><th>Rate</th><th>Status</th><th></th></tr>
+        </thead>
+        <tbody id="services-tbody">
+          <tr><td colspan="4">Loading services…</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </main>
+
+</div>
+
+<!-- Add/Edit service modal -->
+<div class="overlay" id="overlay" hidden>
+  <div class="modal">
+    <h2 id="modal-title">Add service</h2>
+    <div class="field">
+      <label for="svc-name-input">Service name</label>
+      <input id="svc-name-input" type="text" placeholder="e.g. Express Same-Day">
+    </div>
+    <div class="field">
+      <label for="svc-rate-input">Rate per kg (₱)</label>
+      <input id="svc-rate-input" type="number" min="0" step="1" placeholder="e.g. 45">
+    </div>
+    <div class="modal-actions">
+      <button class="btn-ghost" id="cancel-modal">Cancel</button>
+      <button class="btn-primary" id="save-modal">Save</button>
+    </div>
+  </div>
+</div>
+
+<script src="api.js"></script>
+<script src="admin-services.js"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FreshFold Admin — Reports</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="admin-reports.css">
+</head>
+<body>
+
+<div class="shell">
+
+  <aside class="sidebar">
+    <div class="wordmark">FreshFold <span class="tag">Admin</span></div>
+    <nav class="side-nav">
+      <a href="admin-dashboard.html">Overview</a>
+      <a href="admin-orders.html">Orders</a>
+      <a href="admin-assignment.html">Assignment</a>
+      <a href="admin-customers.html">Customers</a>
+      <a href="admin-staff.html">Staff &amp; riders</a>
+      <a href="admin-services.html">Services &amp; pricing</a>
+      <a href="admin-payments.html">Payments</a>
+      <a href="admin-logs.html">Integration logs</a>
+      <a href="admin-reports.html" class="active">Reports</a>
+    </nav>
+    <div class="user-chip">
+      <span class="avatar">AD</span>
+      <div>
+        <p class="user-name">Alicia D.</p>
+        <p class="user-role">Admin</p>
+      </div>
+    </div>
+  </aside>
+
+  <main class="content">
+
+    <div class="page-head">
+      <div>
+        <h1>Reports</h1>
+        <p class="sub">Order volume, revenue, and service performance.</p>
+      </div>
+      <div class="head-actions">
+        <select class="range-select" id="range-select">
+          <option>Last 7 days</option>
+          <option>Last 30 days</option>
+          <option>This month</option>
+        </select>
+        <button class="btn-primary" id="export-btn">Export CSV</button>
+      </div>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <span class="stat-label">Total orders</span>
+        <span class="stat-value" id="stat-orders">—</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Total revenue</span>
+        <span class="stat-value" id="stat-revenue">—</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Avg. order value</span>
+        <span class="stat-value" id="stat-avg">—</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Completed orders</span>
+        <span class="stat-value" id="stat-completed">—</span>
+        <span class="stat-delta neutral" id="stat-completion-rate"></span>
+      </div>
+    </div>
+
+    <div class="grid">
+
+      <div class="card">
+        <h2>Revenue trend</h2>
+        <div class="bar-chart" id="bar-chart" aria-label="Revenue by day">
+          <span class="bar-label">Loading…</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Revenue by service</h2>
+        <ul class="service-breakdown" id="service-breakdown">
+          <li><div class="svc-row"><span>Loading…</span></div></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <h2>Top customers this period</h2>
+      </div>
+      <table class="table">
+        <thead><tr><th>Customer</th><th>Orders</th><th>Total spent</th></tr></thead>
+        <tbody id="top-customers-tbody">
+          <tr><td colspan="3">Loading…</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </main>
+
+</div>
+
+<script src="api.js"></script>
+<script src="admin-reports.js"></script>
+</body>
+</html>

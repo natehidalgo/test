@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FreshFold Admin — Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="admin-dashboard.css">
+</head>
+<body>
+
+<div class="shell">
+
+  <aside class="sidebar">
+    <div class="wordmark">FreshFold <span class="tag">Admin</span></div>
+    <nav class="side-nav">
+      <a href="admin-dashboard.html" class="active">Overview</a>
+      <a href="admin-orders.html">Orders</a>
+      <a href="admin-assignment.html">Assignment</a>
+      <a href="admin-customers.html">Customers</a>
+      <a href="admin-staff.html">Staff &amp; riders</a>
+      <a href="admin-services.html">Services &amp; pricing</a>
+      <a href="admin-payments.html">Payments</a>
+      <a href="admin-logs.html">Integration logs</a>
+      <a href="admin-reports.html">Reports</a>
+    </nav>
+    <div class="user-chip">
+      <span class="avatar">AD</span>
+      <div>
+        <p class="user-name">Alicia D.</p>
+        <p class="user-role">Admin</p>
+      </div>
+    </div>
+  </aside>
+
+  <main class="content">
+
+    <div class="page-head">
+      <div>
+        <h1>Overview</h1>
+        <p class="sub">Wednesday, September 10, 2026</p>
+      </div>
+      <button class="btn-primary" type="button">New booking</button>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <span class="stat-label">Orders today</span>
+        <span class="stat-value" id="stat-orders-today">—</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Revenue today</span>
+        <span class="stat-value" id="stat-revenue-today">—</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Pending assignment</span>
+        <span class="stat-value" id="stat-pending">—</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Failed payments</span>
+        <span class="stat-value" id="stat-failed">—</span>
+      </div>
+    </div>
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-head">
+          <h2>Orders needing assignment</h2>
+          <a class="link-arrow" href="admin-assignment.html">View all &rarr;</a>
+        </div>
+        <table class="table">
+          <thead>
+            <tr><th>Order</th><th>Service</th><th>Window</th><th></th></tr>
+          </thead>
+          <tbody id="assignment-tbody">
+            <tr><td colspan="4">Loading…</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h2>Flagged records</h2>
+          <a class="link-arrow" href="admin-logs.html">View logs &rarr;</a>
+        </div>
+        <ul class="flag-list" id="flag-list">
+          <li><p class="flag-title">Loading…</p></li>
+        </ul>
+      </div>
+
+    </div>
+
+  </main>
+
+</div>
+
+<script src="api.js"></script>
+<script src="admin-dashboard.js"></script>
+</body>
+</html>

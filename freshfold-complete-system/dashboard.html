@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FreshFold — Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wordmark">FreshFold</div>
+  <nav class="nav">
+    <a href="dashboard.html" class="active">Home</a>
+    <a href="book.html">Book a service</a>
+    <a href="history.html">Orders</a>
+    <a href="notifications.html">Notifications</a>
+  </nav>
+  <div class="user-chip">
+    <span class="avatar">JD</span>
+    <span class="user-name">Juan D.</span>
+  </div>
+</header>
+
+<main class="page">
+
+  <section class="greeting">
+    <div>
+      <h1 id="greeting-name">Good afternoon</h1>
+      <p class="sub" id="greeting-sub">Loading your orders…</p>
+    </div>
+    <button class="btn-primary" type="button">Book a pickup</button>
+  </section>
+
+  <section class="stats-row">
+    <div class="stat-card">
+      <span class="stat-value" id="stat-active">—</span>
+      <span class="stat-label">Active order</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-value" id="stat-completed">—</span>
+      <span class="stat-label">Completed this month</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-value" id="stat-spent">—</span>
+      <span class="stat-label">Spent this month</span>
+    </div>
+  </section>
+
+  <section class="grid">
+
+    <div class="card order-card" id="order-card">
+      <div class="card-head">
+        <div>
+          <span class="eyebrow" id="order-code">No active order</span>
+          <h2 id="order-service">—</h2>
+        </div>
+        <span class="badge badge-progress" id="order-badge">—</span>
+      </div>
+
+      <ol class="stepper" aria-label="Order progress" id="order-stepper">
+        <li class="done"><span class="dot"></span>Booked</li>
+        <li><span class="dot"></span>Picked up</li>
+        <li><span class="dot"></span>Processing</li>
+        <li><span class="dot"></span>Out for delivery</li>
+        <li><span class="dot"></span>Delivered</li>
+      </ol>
+
+      <div class="order-meta">
+        <div>
+          <span class="meta-label">Estimated delivery</span>
+          <span class="meta-value" id="order-delivery">—</span>
+        </div>
+        <div>
+          <span class="meta-label">Rider</span>
+          <span class="meta-value" id="order-rider">Not yet assigned</span>
+        </div>
+      </div>
+
+      <a class="link-arrow" id="track-link" href="track.html">Track this order</a>
+    </div>
+
+    <div class="card activity-card">
+      <div class="card-head">
+        <h2>Recent activity</h2>
+      </div>
+      <ul class="activity-list" id="activity-list">
+        <li><p class="activity-title">Loading recent activity…</p></li>
+      </ul>
+    </div>
+
+  </section>
+
+</main>
+
+<script src="api.js"></script>
+<script src="dashboard.js"></script>
+</body>
+</html>

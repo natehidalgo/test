@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FreshFold Admin — Customers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="admin-customers.css">
+</head>
+<body>
+
+<div class="shell">
+
+  <aside class="sidebar">
+    <div class="wordmark">FreshFold <span class="tag">Admin</span></div>
+    <nav class="side-nav">
+      <a href="admin-dashboard.html">Overview</a>
+      <a href="admin-orders.html">Orders</a>
+      <a href="admin-assignment.html">Assignment</a>
+      <a href="admin-customers.html" class="active">Customers</a>
+      <a href="admin-staff.html">Staff &amp; riders</a>
+      <a href="admin-services.html">Services &amp; pricing</a>
+      <a href="admin-payments.html">Payments</a>
+      <a href="admin-logs.html">Integration logs</a>
+      <a href="admin-reports.html">Reports</a>
+    </nav>
+    <div class="user-chip">
+      <span class="avatar">AD</span>
+      <div>
+        <p class="user-name">Alicia D.</p>
+        <p class="user-role">Admin</p>
+      </div>
+    </div>
+  </aside>
+
+  <main class="content">
+
+    <div class="page-head">
+      <div>
+        <h1>Customers</h1>
+        <p class="sub">214 registered customers.</p>
+      </div>
+    </div>
+
+    <div class="toolbar">
+      <input class="search-input" type="search" id="search" placeholder="Search by name, email, or phone">
+      <div class="filter-row" role="tablist" aria-label="Filter customers">
+        <button class="filter-chip selected" data-filter="all">All</button>
+        <button class="filter-chip" data-filter="active">Active</button>
+        <button class="filter-chip" data-filter="suspended">Suspended</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <table class="table" id="customers-table">
+        <thead>
+          <tr>
+            <th>Customer</th><th>Contact</th><th>Orders</th><th>Total spent</th><th>Status</th><th></th>
+          </tr>
+        </thead>
+        <tbody id="customers-tbody">
+          <tr><td colspan="6">Loading customers…</td></tr>
+        </tbody>
+      </table>
+      <p class="empty-state" id="empty-state" hidden>No customers match your search or filter.</p>
+    </div>
+
+  </main>
+
+</div>
+
+<!-- Customer detail panel (demo slide-over) -->
+<div class="overlay" id="overlay" hidden>
+  <div class="detail-panel">
+    <div class="detail-head">
+      <h2 id="detail-name">Customer name</h2>
+      <button class="btn-ghost small" id="close-panel">Close</button>
+    </div>
+    <div class="detail-row"><span>Email</span><span id="detail-email">—</span></div>
+    <div class="detail-row"><span>Phone</span><span id="detail-phone">—</span></div>
+    <div class="detail-row"><span>Total orders</span><span id="detail-orders">—</span></div>
+    <div class="detail-row"><span>Total spent</span><span id="detail-spent">—</span></div>
+    <div class="detail-row"><span>Status</span><span id="detail-status">—</span></div>
+    <div class="detail-actions">
+      <button class="btn-ghost" id="toggle-status">Suspend account</button>
+    </div>
+  </div>
+</div>
+
+<script src="api.js"></script>
+<script src="admin-customers.js"></script>
+</body>
+</html>

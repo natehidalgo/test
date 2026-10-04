@@ -1,0 +1,94 @@
+:root{
+  --bg:#EEF4F3;
+  --panel:#0F3238;
+  --panel-2:#164048;
+  --accent:#F4B93E;
+  --accent-ink:#3A2A05;
+  --ink:#16262A;
+  --ink-soft:#516567;
+  --line:#D8E3E1;
+  --white:#FFFFFF;
+  --success:#2F8F6F;
+  --progress:#C98A1F;
+  --danger:#B4462E;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0B1B1E; --ink:#EAF1F0; --ink-soft:#9FB3B2; --line:#1E3A3D; --white:#12292C;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0B1B1E; --ink:#EAF1F0; --ink-soft:#9FB3B2; --line:#1E3A3D; --white:#12292C;
+}
+*{box-sizing:border-box;}
+html{scroll-padding-top:env(safe-area-inset-top,0px);}
+body{ margin:0; background:var(--bg); color:var(--ink);
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px); }
+
+.topbar{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:18px 32px; background:var(--white); border-bottom:1px solid var(--line);
+  position:sticky; top:env(safe-area-inset-top,0px); z-index:5;
+}
+.wordmark{ font-family:'Fraunces', serif; font-weight:500; font-size:1.2rem; color:var(--panel); display:flex; align-items:center; gap:8px; }
+.tag{
+  font-family:'Inter', sans-serif; font-size:.68rem; font-weight:700; letter-spacing:.04em;
+  text-transform:uppercase; background:var(--accent); color:var(--accent-ink);
+  padding:3px 8px; border-radius:6px;
+}
+.nav{ display:flex; gap:28px; }
+.nav a{ color:var(--ink-soft); text-decoration:none; font-size:.92rem; font-weight:500; }
+.user-chip{ display:flex; align-items:center; gap:10px; }
+.avatar{
+  width:34px; height:34px; border-radius:50%; background:var(--panel); color:#fff;
+  display:flex; align-items:center; justify-content:center; font-size:.8rem; font-weight:600; flex-shrink:0;
+}
+.user-name{ font-size:.9rem; font-weight:600; }
+@media (max-width:600px){ .nav{ display:none; } }
+
+.page{ max-width:640px; margin:0 auto; padding:28px 24px 64px; }
+.back-link{ display:inline-block; color:var(--ink-soft); text-decoration:none; font-size:.85rem; margin-bottom:18px; }
+
+.page-head{ display:flex; align-items:flex-start; justify-content:space-between; gap:12px; margin-bottom:22px; }
+.eyebrow{ display:block; color:var(--ink-soft); font-size:.8rem; font-weight:600; margin-bottom:4px; }
+.page-head h1{ font-family:'Fraunces', serif; font-weight:500; font-size:1.4rem; margin:0; }
+.badge{ padding:7px 14px; border-radius:20px; font-size:.8rem; font-weight:600; white-space:nowrap; }
+.badge-pending{ background:#FBEFDA; color:var(--progress); }
+.badge-done{ background:#E4F3ED; color:var(--success); }
+
+.main-col{ display:flex; flex-direction:column; gap:16px; }
+.card{ background:var(--white); border:1px solid var(--line); border-radius:16px; padding:22px; }
+.card h2{ font-family:'Fraunces', serif; font-weight:500; font-size:1rem; margin:0 0 16px; }
+
+.customer-row{ display:flex; align-items:center; gap:14px; }
+.cust-avatar{ width:40px; height:40px; font-size:.82rem; }
+.customer-info{ flex:1; }
+.cust-name{ margin:0; font-weight:600; font-size:.94rem; }
+.cust-sub{ margin:0; font-size:.8rem; color:var(--ink-soft); }
+.btn-ghost{
+  border:1.5px solid var(--line); background:var(--white); color:var(--ink);
+  border-radius:9px; padding:9px 14px; font:inherit; font-size:.84rem; font-weight:600; cursor:pointer;
+}
+
+.detail-row{ display:flex; justify-content:space-between; gap:16px; font-size:.88rem; padding:7px 0; color:var(--ink-soft); }
+.detail-row span:last-child{ color:var(--ink); font-weight:600; text-align:right; }
+
+.field{ display:flex; flex-direction:column; gap:6px; margin-bottom:16px; }
+.field label{ font-size:.82rem; font-weight:600; color:var(--ink-soft); }
+.optional{ font-weight:400; }
+.field textarea{
+  font:inherit; font-size:.92rem; padding:11px 13px; border-radius:10px;
+  border:1.5px solid var(--line); background:var(--bg); color:var(--ink); outline:none; resize:vertical;
+}
+.field textarea:focus{ border-color:var(--panel); background:var(--white); }
+
+.action-row{ display:flex; flex-direction:column; gap:10px; }
+.btn-primary{
+  background:var(--accent); color:var(--accent-ink); border:0; border-radius:10px;
+  padding:13px 0; font:inherit; font-weight:600; font-size:.94rem; cursor:pointer; width:100%;
+}
+.btn-outline{
+  background:transparent; color:var(--danger); border:1.5px solid #EAC2B4; border-radius:10px;
+  padding:12px 0; font:inherit; font-weight:600; font-size:.9rem; cursor:pointer; width:100%;
+}

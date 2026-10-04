@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FreshFold — Sign in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="shell">
+
+  <section class="brand">
+    <div class="wordmark">FreshFold</div>
+    <div class="brand-copy">
+      <h1>Laundry day, handled.</h1>
+      <p>Book a pickup, track every load, and pay online — without leaving the house.</p>
+      <div class="fold-marks" aria-hidden="true">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="#F4B93E" stroke-width="2"><path d="M4 8l8-4 8 4-8 4-8-4z"/><path d="M4 8v8l8 4 8-4V8"/></svg></span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="#F4B93E" stroke-width="2"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="#F4B93E" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-inner">
+
+      <div class="toggle" role="tablist" aria-label="Choose sign in or register">
+        <button id="tab-login" role="tab" aria-selected="true" onclick="setMode('login')">Log in</button>
+        <button id="tab-register" role="tab" aria-selected="false" onclick="setMode('register')">Register</button>
+      </div>
+
+      <!-- LOGIN -->
+      <div id="view-login">
+        <h2>Welcome back</h2>
+        <p class="sub">Log in to book a pickup or check your order.</p>
+        <div class="error" id="login-error">We couldn't find an account with that email.</div>
+        <form onsubmit="return demoSubmit(event, 'login')">
+          <div class="field">
+            <label for="li-email">Email</label>
+            <input id="li-email" type="email" placeholder="you@email.com" required>
+          </div>
+          <div class="field">
+            <label for="li-pass">Password</label>
+            <input id="li-pass" type="password" placeholder="••••••••" required>
+          </div>
+          <div class="row-between">
+            <label class="checkbox"><input type="checkbox"> Keep me signed in</label>
+            <a href="#">Forgot password?</a>
+          </div>
+          <button class="btn-primary" type="submit">Log in</button>
+        </form>
+
+        <p class="switch-line">New to FreshFold? <a onclick="setMode('register')">Create an account</a></p>
+      </div>
+
+      <!-- REGISTER -->
+      <div id="view-register" style="display:none;">
+        <h2>Create your account</h2>
+        <p class="sub">Set up bookings, tracking, and payment in a couple of minutes.</p>
+        <div class="error" id="register-error">That email is already registered.</div>
+        <form onsubmit="return demoSubmit(event, 'register')">
+          <div class="field">
+            <label for="re-name">Full name</label>
+            <input id="re-name" type="text" placeholder="Juan Dela Cruz" required>
+          </div>
+          <div class="field">
+            <label for="re-email">Email</label>
+            <input id="re-email" type="email" placeholder="you@email.com" required>
+          </div>
+          <div class="field">
+            <label for="re-phone">Contact number</label>
+            <input id="re-phone" type="tel" placeholder="+63 917 000 0000" required>
+          </div>
+          <div class="field">
+            <label for="re-pass">Password</label>
+            <input id="re-pass" type="password" placeholder="At least 8 characters" required minlength="8">
+          </div>
+          <button class="btn-primary" type="submit">Create account</button>
+        </form>
+
+        <p class="switch-line">Already have an account? <a onclick="setMode('login')">Log in</a></p>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

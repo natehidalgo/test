@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FreshFold Admin — Orders</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="admin-orders.css">
+</head>
+<body>
+
+<div class="shell">
+
+  <aside class="sidebar">
+    <div class="wordmark">FreshFold <span class="tag">Admin</span></div>
+    <nav class="side-nav">
+      <a href="admin-dashboard.html">Overview</a>
+      <a href="admin-orders.html" class="active">Orders</a>
+      <a href="admin-assignment.html">Assignment</a>
+      <a href="admin-customers.html">Customers</a>
+      <a href="admin-staff.html">Staff &amp; riders</a>
+      <a href="admin-services.html">Services &amp; pricing</a>
+      <a href="admin-payments.html">Payments</a>
+      <a href="admin-logs.html">Integration logs</a>
+      <a href="admin-reports.html">Reports</a>
+    </nav>
+    <div class="user-chip">
+      <span class="avatar">AD</span>
+      <div>
+        <p class="user-name">Alicia D.</p>
+        <p class="user-role">Admin</p>
+      </div>
+    </div>
+  </aside>
+
+  <main class="content">
+
+    <div class="page-head">
+      <div>
+        <h1>Orders</h1>
+        <p class="sub">All bookings across every customer, status, and service type.</p>
+      </div>
+      <button class="btn-primary" type="button">New booking</button>
+    </div>
+
+    <div class="toolbar">
+      <input class="search-input" type="search" id="search" placeholder="Search by order ID or customer name">
+      <div class="filter-row" role="tablist" aria-label="Filter orders by status">
+        <button class="filter-chip selected" data-filter="all">All</button>
+        <button class="filter-chip" data-filter="pending">Pending</button>
+        <button class="filter-chip" data-filter="processing">Processing</button>
+        <button class="filter-chip" data-filter="delivery">Out for delivery</button>
+        <button class="filter-chip" data-filter="delivered">Delivered</button>
+        <button class="filter-chip" data-filter="failed">Payment failed</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <table class="table" id="orders-table">
+        <thead>
+          <tr>
+            <th>Order ID</th><th>Customer</th><th>Service</th><th>Rider</th><th>Status</th><th>Total</th><th></th>
+          </tr>
+        </thead>
+        <tbody id="orders-tbody">
+          <tr><td colspan="7">Loading orders…</td></tr>
+        </tbody>
+      </table>
+      <p class="empty-state" id="empty-state" hidden>No orders match your search or filter.</p>
+    </div>
+
+  </main>
+
+</div>
+
+<script src="api.js"></script>
+<script src="admin-orders.js"></script>
+</body>
+</html>

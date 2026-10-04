@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FreshFold — Book a service</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="book.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wordmark">FreshFold</div>
+  <nav class="nav">
+    <a href="dashboard.html">Home</a>
+    <a href="book.html" class="active">Book a service</a>
+    <a href="history.html">Orders</a>
+    <a href="notifications.html">Notifications</a>
+  </nav>
+  <div class="user-chip">
+    <span class="avatar">JD</span>
+    <span class="user-name">Juan D.</span>
+  </div>
+</header>
+
+<main class="page">
+
+  <div class="page-head">
+    <h1>Book a pickup</h1>
+    <p class="sub">Tell us what you need washed and when to grab it — we'll handle the rest.</p>
+  </div>
+
+  <div class="layout">
+
+    <form class="form-card" id="booking-form">
+
+      <div class="section">
+        <h2>1. Choose a service</h2>
+        <div class="service-grid" role="radiogroup" aria-label="Service type">
+          <button type="button" class="service-option selected" data-id="1" data-price="45" data-service="Wash, Dry &amp; Fold">
+            <span class="service-name">Wash, Dry &amp; Fold</span>
+            <span class="service-price">₱45 / kg</span>
+          </button>
+          <button type="button" class="service-option" data-id="2" data-price="55" data-service="Wash &amp; Dry Only">
+            <span class="service-name">Wash &amp; Dry Only</span>
+            <span class="service-price">₱55 / kg</span>
+          </button>
+          <button type="button" class="service-option" data-id="3" data-price="90" data-service="Dry Cleaning">
+            <span class="service-name">Dry Cleaning</span>
+            <span class="service-price">₱90 / kg</span>
+          </button>
+          <button type="button" class="service-option" data-id="4" data-price="30" data-service="Ironing Only">
+            <span class="service-name">Ironing Only</span>
+            <span class="service-price">₱30 / kg</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>2. Estimated load</h2>
+        <div class="load-control">
+          <input type="range" id="load-slider" min="1" max="20" step="0.5" value="8.5">
+          <span class="load-value"><span id="load-display">8.5</span> kg</span>
+        </div>
+        <p class="hint">Not sure? A standard laundry bag is about 6–8 kg. Final weight is confirmed at pickup.</p>
+      </div>
+
+      <div class="section">
+        <h2>3. Pickup details</h2>
+        <div class="field">
+          <label for="address">Pickup address</label>
+          <input id="address" type="text" placeholder="House/unit no., street, barangay, city" required>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="pickup-date">Pickup date</label>
+            <input id="pickup-date" type="date" required>
+          </div>
+          <div class="field">
+            <label for="pickup-time">Pickup window</label>
+            <select id="pickup-time" required>
+              <option value="">Select a window</option>
+              <option>8:00 – 10:00 AM</option>
+              <option>10:00 AM – 12:00 PM</option>
+              <option>1:00 – 3:00 PM</option>
+              <option>3:00 – 5:00 PM</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>4. Delivery preference</h2>
+        <div class="field">
+          <label for="delivery-date">Preferred delivery date <span class="optional">(optional)</span></label>
+          <input id="delivery-date" type="date">
+        </div>
+        <div class="field">
+          <label for="notes">Special instructions <span class="optional">(optional)</span></label>
+          <textarea id="notes" rows="3" placeholder="e.g. separate whites, delicate fabric, fabric softener preference"></textarea>
+        </div>
+      </div>
+
+    </form>
+
+    <aside class="summary-card">
+      <h2>Order summary</h2>
+      <div class="summary-row">
+        <span>Service</span>
+        <span id="sum-service">Wash, Dry &amp; Fold</span>
+      </div>
+      <div class="summary-row">
+        <span>Estimated load</span>
+        <span><span id="sum-load">8.5</span> kg</span>
+      </div>
+      <div class="summary-row">
+        <span>Rate</span>
+        <span>₱<span id="sum-rate">45</span> / kg</span>
+      </div>
+      <div class="summary-divider"></div>
+      <div class="summary-row total">
+        <span>Estimated total</span>
+        <span>₱<span id="sum-total">382.50</span></span>
+      </div>
+      <p class="summary-note">Final price is based on actual weight at pickup. You'll confirm and pay after the rider weighs your load.</p>
+      <p class="summary-note" id="book-error" style="display:none; color:#B4462E;"></p>
+      <button class="btn-primary" type="submit" form="booking-form" id="submit-booking">Continue to review</button>
+    </aside>
+
+  </div>
+
+</main>
+
+<script src="api.js"></script>
+<script src="book.js"></script>
+</body>
+</html>

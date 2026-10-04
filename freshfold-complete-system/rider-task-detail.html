@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FreshFold Rider — Task detail</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="rider-task-detail.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wordmark">FreshFold <span class="tag">Rider</span></div>
+  <nav class="nav">
+    <a href="rider-tasks.html">Tasks</a>
+    <a href="rider-task-history.html">Task history</a>
+  </nav>
+  <div class="user-chip">
+    <span class="avatar">MA</span>
+    <span class="user-name">Mark A.</span>
+  </div>
+</header>
+
+<main class="page">
+
+  <a class="back-link" href="rider-tasks.html">&larr; Back to tasks</a>
+
+  <div class="page-head">
+    <div>
+      <span class="eyebrow" id="order-eyebrow">Loading task…</span>
+      <h1 id="order-address">—</h1>
+    </div>
+    <span class="badge badge-pending" id="order-badge">Pending</span>
+  </div>
+
+  <div class="layout">
+
+    <div class="main-col">
+
+      <div class="card">
+        <h2>Customer</h2>
+        <div class="customer-row">
+          <span class="avatar cust-avatar" id="cust-avatar">—</span>
+          <div class="customer-info">
+            <p class="cust-name" id="cust-name">—</p>
+            <p class="cust-sub" id="cust-phone"></p>
+          </div>
+          <button class="btn-ghost" type="button" id="call-btn">Call</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 id="details-heading">Pickup details</h2>
+        <div class="detail-row"><span>Address</span><span id="detail-address">—</span></div>
+        <div class="detail-row"><span>Window</span><span id="detail-window">—</span></div>
+        <div class="detail-row"><span>Service</span><span id="detail-service">—</span></div>
+        <div class="detail-row"><span>Estimated load</span><span id="detail-load">—</span></div>
+        <div class="detail-row"><span>Instructions</span><span id="detail-instructions">—</span></div>
+      </div>
+
+      <div class="card">
+        <h2>Update status</h2>
+        <div class="field">
+          <label for="remarks">Remarks <span class="optional">(optional)</span></label>
+          <textarea id="remarks" rows="3" placeholder="e.g. customer not home, left with guard"></textarea>
+        </div>
+        <div class="action-row">
+          <button class="btn-primary" id="mark-picked-up" type="button">Mark as picked up</button>
+          <button class="btn-outline" id="report-issue" type="button">Report an issue</button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+
+<script src="api.js"></script>
+<script src="rider-task-detail.js"></script>
+</body>
+</html>
